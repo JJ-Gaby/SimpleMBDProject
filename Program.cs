@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace SimpleMDB;
+
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+       App app = new App();
+        await app.Start();
+    }
+}
