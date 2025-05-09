@@ -4,20 +4,26 @@ using System.Collections;
 using System.Text;
 
 public class AuthController{
-    public AuthController(){
+    private IUserService userService;
+    public AuthController(IUserService userService)
+    {
+        this.userService = userService;
     
     }
 
     public async Task LandingPageGet(HttpListenerRequest req, HttpListenerResponse res, Hashtable options){
-        string html = HtmlTemplates.Base("SimpleMDB", "Landing Page", "Hello!");
-
-        byte[] content = Encoding.UTF8.GetBytes(html);
-
-        res.StatusCode = (int)HttpStatusCode.OK;
-        res.ContentEncoding = Encoding.UTF8;
-        res.ContentType = "text/html";
-        res.ContentLength64 = content.LongLength;
-        await res.OutputStream.WriteAsync(content);
-        res.Close();
+        string html = $@"
+        <nav>
+            <ul>
+                <li><a href=""/login"">Login</a></li>
+                <li><a href=""/register"">Register</a></li>
+                <li><a href=""/logout"">Logout</a></li>
+                <li><a href=""/users"">Users</a></li>
+                <li><a href=""/actors"">Actors</a></li>
+                <li><a href=""/movies"">Movies</a></li>
+            </ul>
+        ";
+        string content = HtmlTemplates.Base("SimpleMDB", "Landing Page", html);
+        await HttpUtils.Respond(req, res, options, (int)HttpStatusCode.OK, content);
     }
 }

@@ -18,10 +18,16 @@ public class App
     server.Prefixes.Add(host);
 
     Console.WriteLine("Server is listening..."+host);
-    var authController = new AuthController();
+
+    var userRepository = new MockUserRepository();
+    var userService = new MockUserService(userRepository);
+    var authController = new AuthController(userService);
+    var userController = new UserController(userService);
+
     router = new HttpRouter();
 
     router.AddGet("/", authController.LandingPageGet);
+    router.AddGet("/users", userController.ViewAllGet);
 }
 
 public async Task Start()
