@@ -30,6 +30,10 @@ public class App
         var actorService = new MockActorService(actorRepository);
         var actorController = new ActorController(actorService);
 
+        var movieRepository = new MockMovieRepository();
+        var movieService = new MockMovieService(movieRepository);
+        var movieController = new MovieController(movieService);
+
 
         router = new HttpRouter();
         router.Use(HttpUtils.ServeStaticFile);
@@ -44,7 +48,7 @@ public class App
         router.AddGet("/users/edit", userController.EditUserGet);
         router.AddPost("/users/edit", userController.EditUserPost);
         router.AddPost("/users/remove", userController.RemoveUserPost);
-
+        
         router.AddGet("/actors", actorController.ViewAllActorsGet);
         router.AddGet("/actors/add", actorController.AddActorGet);
         router.AddPost("/actors/add", actorController.AddActorPost);
@@ -52,6 +56,14 @@ public class App
         router.AddGet("/actors/edit", actorController.EditActorGet);
         router.AddPost("/actors/edit", actorController.EditActorPost);
         router.AddPost("/actors/remove", actorController.RemoveActorPost);
+
+        router.AddGet("/movies", movieController.ViewAllMoviesGet);
+        router.AddGet("/movies/add", movieController.AddMovieGet);
+        router.AddPost("/movies/add", movieController.AddMoviePost);
+        router.AddGet("/movies/view", movieController.ViewMovieGet);
+        router.AddGet("/movies/edit", movieController.EditMovieGet);
+        router.AddPost("/movies/edit", movieController.EditMoviePost);
+        router.AddPost("/movies/remove", movieController.RemoveMoviePost);
     }
 
     public async Task Start()

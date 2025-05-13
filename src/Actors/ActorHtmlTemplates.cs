@@ -69,7 +69,7 @@ return html;
             <label for=""bio"">Bio</label>
             <input type=""bio"" id=""bio"" name=""bio"" type=""text"" placeholder= ""Bio"" value=""{bio}"">
             <label for=""rating"">Rating</label>
-            <input id=""rating"" name=""rating"" type=""range"" min=""0"" max=""10"" step=""0.1"" value =""{rating}"">
+            <input id=""rating"" name=""rating"" type=""number"" min=""0"" max=""10"" step=""0.1"" value =""{rating}"">
             <input type=""submit"" value=""Add"">
         </form>";
 
