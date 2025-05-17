@@ -182,7 +182,8 @@ float[] ratings = {
     7.5f, 6.8f, 7.7f, 7.1f, 6.8f,
     7.9f, 7.7f, 8.0f, 7.4f, 7.6f,
     7.5f, 8.0f, 7.9f, 7.1f, 7.4f,
-    7.0f, 6.7f, 8.3f, 8.1f, 8.0f
+    7.0f, 6.7f, 8.3f, 8.1f, 8.0f,
+    7.5f, 6.8f, 7.7f, 7.1f, 6.8f,
 };
 
 int count = new[] { titles.Length, descriptions.Length, years.Length, ratings.Length }.Min();

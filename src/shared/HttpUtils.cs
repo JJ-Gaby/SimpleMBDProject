@@ -39,7 +39,7 @@ public static void AddOptions(Hashtable options, string name, NameValueCollectio
         var append = location.Contains('?') ? '&' : '?';
         
         foreach(var key in redirectProps.AllKeys){
-           query.Add($"{key}={HttpUtility.UrlEncode(key)}={HttpUtility.UrlEncode(redirectProps[key])}");
+        query.Add($"{HttpUtility.UrlEncode(key)}={HttpUtility.UrlEncode(redirectProps[key])}");
         }
 
         res.Redirect(location + append + string.Join('&', query));

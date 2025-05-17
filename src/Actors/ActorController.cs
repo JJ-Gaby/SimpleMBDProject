@@ -154,15 +154,13 @@ public class ActorController
     else 
     {
       HttpUtils.AddOptions(options, "redirect", "message", result.Error!.Message);
-      await HttpUtils.Redirect(req, res, options, "/actors/edit");
+      await HttpUtils.Redirect(req, res, options, $"/actors/edit?aid={aid}");
     }
   }
 
 // POST /actors/remove?aid=1
 public async Task RemoveActorPost(HttpListenerRequest req, HttpListenerResponse res, Hashtable options)
     {
-      string message = req.QueryString["message"] ?? "";
-
       int aid = int.TryParse(req.QueryString["aid"], out int u) ? u : 1;
 
       Result<Actor> result = await actorService.Delete(aid);
@@ -171,7 +169,8 @@ public async Task RemoveActorPost(HttpListenerRequest req, HttpListenerResponse 
         HttpUtils.AddOptions(options, "redirect", "message","Actor edited successfully!");
         await HttpUtils.Redirect(req, res, options, "/actors");
       }
-      else{
+      else
+      {
         HttpUtils.AddOptions(options, "redirect", "message", result.Error!.Message);
         await HttpUtils.Redirect(req, res, options, "/actors");
       }

@@ -128,7 +128,18 @@ public class MockActorRepository : IActorRepository
             "Dramatic actor flourishing in low-budget films.",
             "Detective roles in top-rated television series.",
             "Emerging talent shaking up the industry narrative.",
-            "Veteran presence anchoring big ensemble casts."
+            "Veteran presence anchoring big ensemble casts.",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
+            "kuhi",
         };
 
         float[] ratings = {
