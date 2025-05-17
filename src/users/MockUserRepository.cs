@@ -8,7 +8,7 @@ public class MockUserRepository : IUserRepository
     public MockUserRepository()
     {
         users = [];
-        idCount = 0;
+        idCount = 0; //++
 
         var usernames = new string[]{
         "Isaac", "Miriam", "Moses", "Aaron", "David", "Solomon", "Elijah", "Isaiah", "Jeremiah", "Ezekiel",

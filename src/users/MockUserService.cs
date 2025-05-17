@@ -47,7 +47,7 @@ public class MockUserService : IUserService
     }
     else if (newUser.Password.Length < 10)
     {
-      return new Result<User>(new Exception("Password cannot have less than 16 characters"));
+      return new Result<User>(new Exception("Password cannot have less than 10 characters"));
     }
 
       if (!Roles.IsValid(newUser.Role))
@@ -101,7 +101,7 @@ public class MockUserService : IUserService
     }
     else if (newUser.Password.Length < 10)
     {
-      return new Result<User>(new Exception("Password cannot have less than 16 characters"));
+      return new Result<User>(new Exception("Password cannot have less than 10 characters"));
     }
 
       if (!Roles.IsValid(newUser.Role))

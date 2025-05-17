@@ -163,7 +163,7 @@ public async Task RemoveUserPost(HttpListenerRequest req, HttpListenerResponse r
       Result<User> result = await userService.Delete(uid);
       if (result.IsValid)
       {
-        HttpUtils.AddOptions(options, "redirect", "message","User edited successfully!");
+        HttpUtils.AddOptions(options, "redirect", "message","User removed successfully!");
         await HttpUtils.Redirect(req, res, options, "/users");
       }
       else{

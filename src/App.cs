@@ -150,7 +150,7 @@ public class App
         {
             if (res.StatusCode == HttpRouter.RESPONSE_NOT_SENT_YET)
             {
-                string html = HtmlTemplates.Base("SimpleMDB", "Not Found Page", "Resource not found");
+                string html = HtmlTemplates.Base("SimpleMDB", "Page Not Found", "Resource not found");
                 await HttpUtils.Respond(req, res, options, (int)HttpStatusCode.NotFound, html);
             }
 
